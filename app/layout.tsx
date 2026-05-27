@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     locale:   'en_NG',
     type:     'website',
   },
-    verification: {
-    google: 'Eoky7hUcW0-wQfKkd_b-pZyfSetl4KUmqT5vh2M5W-4652',
+  verification: {
+    google: 'Eoky7hUcW0-wQfKkd_b-pZyfSetl4KUmqT5vh2M5W-4',
   },
 };
 
