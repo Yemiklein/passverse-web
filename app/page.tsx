@@ -1,65 +1,71 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import { Button } from '@/components/ui/Button';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "PassVerse — Nigeria's #1 Exam Prep App",
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    /* Full-viewport hero — sits behind Navbar (which is fixed/transparent) */
+    <div
+      id="home"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-4"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #6B8EF5 100%)',
+      }}
+    >
+      {/* Decorative glow blob */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
+        <div
+          className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20"
+          style={{ background: 'radial-gradient(circle, #ffffff 0%, transparent 70%)' }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+
+      <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-6">
+        {/* Eyebrow tag */}
+        <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-white tracking-widest uppercase">
+          🇳🇬 Nigeria&apos;s #1 Exam Prep App
+        </span>
+
+        {/* Wordmark */}
+        <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-none">
+          PassVerse
+        </h1>
+        <p className="text-white/70 text-sm tracking-[0.3em] uppercase font-medium -mt-4">
+          Imodoye
+        </p>
+
+        {/* Sub-heading */}
+        <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-md">
+          Ace JAMB, WAEC, GCE &amp; Post-UTME with AI explanations,
+          10,000+ past questions, and personalised practice.
+        </p>
+
+        {/* Download CTA */}
+        <div id="download" className="flex flex-col sm:flex-row gap-4 mt-2">
+          <Button
+            href="https://play.google.com/store/apps/details?id=com.passverse"
+            size="lg"
+            variant="secondary"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            📱 Download on Android
+          </Button>
+          <Button href="#features" size="lg" variant="ghost" className="text-white hover:bg-white/10 border-2 border-white/30">
+            See Features
+          </Button>
         </div>
-      </main>
+
+        {/* Coming soon notice */}
+        <p className="text-white/50 text-sm mt-4">
+          Full website launching soon &mdash; Sprint 1 scaffold complete ✓
+        </p>
+      </div>
     </div>
   );
 }
