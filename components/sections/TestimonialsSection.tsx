@@ -16,7 +16,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:  'The mock exam feature is exactly like the real CBT. I was so calm on exam day because I had practiced the same format hundreds of times.',
-    name:   'Emeka Adeyemi',
+    name:   'Brian Adeyemi',
     detail: 'WAEC 2024 · Federal Government College',
     color:  'bg-teal-500',
   },

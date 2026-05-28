@@ -2,11 +2,20 @@ import Link from 'next/link';
 import { X, Camera, Globe, Smartphone } from 'lucide-react';
 
 const quickLinks = [
-  { label: 'Home',    href: '/' },
-  { label: 'Blog',    href: '/blog' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'About',   href: '/about' },
-  { label: 'Contact', href: 'mailto:support@passverse.com.ng' },
+  { label: 'Home',           href: '/' },
+  { label: 'Past Questions', href: '/past-questions' },
+  { label: 'Blog',           href: '/blog' },
+  { label: 'Pricing',        href: '/pricing' },
+  { label: 'About',          href: '/about' },
+  { label: 'Contact',        href: 'mailto:support@passverse.com.ng' },
+];
+
+const pastQuestionsLinks = [
+  { label: 'JAMB Mathematics',  href: '/past-questions/jamb/mathematics' },
+  { label: 'JAMB English',      href: '/past-questions/jamb/english' },
+  { label: 'WAEC Biology',      href: '/past-questions/waec/biology' },
+  { label: 'WAEC Mathematics',  href: '/past-questions/waec/mathematics' },
+  { label: 'JAMB Economics',    href: '/past-questions/jamb/economics' },
 ];
 
 const legalLinks = [
@@ -25,8 +34,8 @@ export function Footer() {
     <footer className="bg-[var(--color-gray-900)] text-white">
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
 
-        {/* ── Three-column grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        {/* ── Four-column grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12">
 
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-4">
@@ -89,7 +98,26 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 — Legal & Support */}
+          {/* Col 3 — Past Questions */}
+          <div>
+            <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
+              Past Questions
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {pastQuestionsLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="text-sm text-white/70 hover:text-white transition-colors duration-150"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4 — Legal & Support */}
           <div>
             <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
               Legal &amp; Support
