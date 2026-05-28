@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -18,6 +19,12 @@ const navLinks = [
 export function Navbar() {
   const [scrolled,     setScrolled]     = useState(false);
   const [mobileOpen,   setMobileOpen]   = useState(false);
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href.replace('/#features', ''));
+  }
 
   /* Track scroll position */
   useEffect(() => {
@@ -66,27 +73,35 @@ export function Navbar() {
                 scrolled ? 'text-[var(--color-gray-400)]' : 'text-white/70',
               )}
             >
-              Imodoye
+              Ìmọ́dòye
             </span>
           </Link>
 
           {/* ── Desktop Links ── */}
           <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className={cn(
-                    'text-sm font-medium transition-colors duration-200',
-                    scrolled
-                      ? 'text-[var(--color-gray-600)] hover:text-[var(--color-primary)]'
-                      : 'text-white/80 hover:text-white',
-                  )}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map(({ label, href }) => {
+              const active = isActive(href);
+              return (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    aria-current={active ? 'page' : undefined}
+                    className={cn(
+                      'text-sm font-medium transition-colors duration-200',
+                      scrolled
+                        ? active
+                          ? 'text-[var(--color-primary)] font-semibold'
+                          : 'text-[var(--color-gray-600)] hover:text-[var(--color-primary)]'
+                        : active
+                          ? 'text-white font-semibold underline underline-offset-4 decoration-white/50'
+                          : 'text-white/80 hover:text-white',
+                    )}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* ── Desktop CTA ── */}
@@ -128,26 +143,32 @@ export function Navbar() {
             )}
           >
             <nav className="flex flex-col px-6 pt-8 gap-2">
-              {navLinks.map(({ label, href }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: -16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.3 }}
-                >
-                  <Link
-                    href={href}
-                    onClick={closeMobile}
-                    className={cn(
-                      'block py-4 text-xl font-semibold border-b border-[var(--color-gray-100)]',
-                      'text-[var(--color-gray-800)] hover:text-[var(--color-primary)]',
-                      'transition-colors duration-150',
-                    )}
+              {navLinks.map(({ label, href }, i) => {
+                const active = isActive(href);
+                return (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, y: -16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 * i, duration: 0.3 }}
                   >
-                    {label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={href}
+                      onClick={closeMobile}
+                      aria-current={active ? 'page' : undefined}
+                      className={cn(
+                        'block py-4 text-xl font-semibold border-b border-[var(--color-gray-100)]',
+                        active
+                          ? 'text-[var(--color-primary)]'
+                          : 'text-[var(--color-gray-800)] hover:text-[var(--color-primary)]',
+                        'transition-colors duration-150',
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
 
               <motion.div
                 initial={{ opacity: 0, y: -16 }}

@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { X, Camera, Globe, Smartphone } from 'lucide-react';
 
-const quickLinks = [
-  { label: 'Home',           href: '/' },
-  { label: 'Past Questions', href: '/past-questions' },
-  { label: 'Blog',           href: '/blog' },
-  { label: 'Pricing',        href: '/pricing' },
-  { label: 'About',          href: '/about' },
-  { label: 'Contact',        href: 'mailto:support@passverse.com.ng' },
+const companyLinks = [
+  { label: 'About',         href: '/about' },
+  { label: 'Blog',          href: '/blog' },
+  { label: 'Pricing',       href: '/pricing' },
+  { label: 'Contact',       href: '/contact' },
 ];
 
 const pastQuestionsLinks = [
@@ -24,8 +22,8 @@ const legalLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Twitter / X', href: 'https://twitter.com/passverse',        Icon: X },
-  { label: 'Instagram',   href: 'https://instagram.com/passverse',      Icon: Camera },
+  { label: 'Twitter / X', href: 'https://twitter.com/passverse',          Icon: X },
+  { label: 'Instagram',   href: 'https://instagram.com/passverse',        Icon: Camera },
   { label: 'LinkedIn',    href: 'https://linkedin.com/company/passverse', Icon: Globe },
 ];
 
@@ -34,24 +32,24 @@ export function Footer() {
     <footer className="bg-[var(--color-gray-900)] text-white">
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
 
-        {/* ── Four-column grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+        {/* ── Five-column grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 mb-12">
 
-          {/* Col 1 — Brand */}
-          <div className="flex flex-col gap-4">
+          {/* Col 1 — Brand (spans 2 on md) */}
+          <div className="md:col-span-2 flex flex-col gap-4">
             <div>
               <p className="text-2xl font-extrabold tracking-tight text-white">PassVerse</p>
               <p className="text-xs font-medium tracking-widest uppercase text-white/50 mt-0.5">
-                Imodoye
+                Ìmọ́dòye
               </p>
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Nigeria&apos;s smartest exam prep app. Master JAMB, WAEC, GCE and Post-UTME
-              with AI-powered explanations and 10,000+ past questions.
+              with AI-powered explanations and 26,000+ past questions.
             </p>
 
             {/* Social icons */}
-            <div className="flex items-center gap-3 mt-2">
+            <div className="flex items-center gap-3 mt-1">
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
                   key={label}
@@ -68,8 +66,10 @@ export function Footer() {
 
             {/* Play Store badge */}
             <a
-              href="#download"
-              className="inline-flex items-center gap-3 mt-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl px-4 py-3 transition-colors duration-200 w-fit"
+              href="https://play.google.com/store/apps/details?id=com.passverse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 mt-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl px-4 py-3 transition-colors duration-200 w-fit"
             >
               <Smartphone size={20} className="text-white/80" />
               <div className="leading-none">
@@ -79,18 +79,15 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Col 2 — Quick Links */}
+          {/* Col 2 — Company */}
           <div>
             <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
-              Quick Links
+              Company
             </h3>
             <ul className="flex flex-col gap-3">
-              {quickLinks.map(({ label, href }) => (
+              {companyLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-150"
-                  >
+                  <Link href={href} className="text-sm text-white/70 hover:text-white transition-colors duration-150">
                     {label}
                   </Link>
                 </li>
@@ -106,10 +103,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {pastQuestionsLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-150"
-                  >
+                  <Link href={href} className="text-sm text-white/70 hover:text-white transition-colors duration-150">
                     {label}
                   </Link>
                 </li>
@@ -117,26 +111,33 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4 — Legal & Support */}
+          {/* Col 4 — Support & Legal */}
           <div>
             <h3 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">
-              Legal &amp; Support
+              Support &amp; Legal
             </h3>
-            <ul className="flex flex-col gap-3 mb-6">
+            <ul className="flex flex-col gap-3 mb-5">
               {legalLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-150"
-                  >
+                  <Link href={href} className="text-sm text-white/70 hover:text-white transition-colors duration-150">
                     {label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://wa.me/2348000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-white/70 hover:text-white transition-colors duration-150"
+                >
+                  WhatsApp Support
+                </a>
+              </li>
             </ul>
             <div>
               <p className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">
-                Support
+                Email Support
               </p>
               <a
                 href="mailto:support@passverse.com.ng"
@@ -151,10 +152,10 @@ export function Footer() {
         {/* ── Bottom bar ── */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40 text-center sm:text-left">
-            &copy; 2025 PassVerse (Imodoye). All rights reserved.
+            &copy; 2025 PassVerse (Ìmọ́dòye). All rights reserved.
           </p>
           <p className="text-xs text-white/40">
-            Made with ❤️ in Nigeria
+            Made with ❤️ in Nigeria 🇳🇬
           </p>
         </div>
       </div>

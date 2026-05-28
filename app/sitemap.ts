@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog';
+import { EXAMS } from '@/lib/pastQuestions';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -23,6 +24,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.9,
   });
+
+  // Exam index pages
+  for (const exam of EXAMS) {
+    pastQuestionsUrls.push({
+      url: `https://passverse.com.ng/past-questions/${exam.key}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    });
+  }
 
   for (const exam of allExams) {
     for (const subject of topSubjects) {
@@ -67,6 +78,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://passverse.com.ng/about',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://passverse.com.ng/contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,

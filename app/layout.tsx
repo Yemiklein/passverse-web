@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { FloatingDownloadCTA } from '@/components/ui/FloatingDownloadCTA';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://passverse.com.ng'),
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     'Nigeria exam prep',
     'JAMB app',
     'PassVerse',
-    'Imodoye',
+    'Ìmọ́dòye',
   ],
   openGraph: {
     siteName: 'PassVerse',
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingDownloadCTA />
       </body>
     </html>
   );
