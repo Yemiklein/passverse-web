@@ -59,7 +59,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
             PassVerse started as a simple idea: every Nigerian student deserves access to quality
-            exam preparation — regardless of where they live or what they can afford.
+            exam preparation regardless of where they live or what they can afford.
           </p>
         </div>
       </section>
@@ -99,18 +99,18 @@ export default function AboutPage() {
             <p>
               PassVerse (also known as{' '}
               <strong className="text-[var(--color-gray-900)]">Ìmọ́dòye</strong> — a Yoruba word meaning
-              &ldquo;knowledge has value&rdquo;) was built by Adeyemi, a solo developer who saw firsthand
+              &ldquo;knowledge becomes wisdom or has value&rdquo;) was built by Adeyemi, a Senior Software Engineer who saw firsthand
               how Nigerian students struggled to access quality exam preparation materials.
             </p>
             <p>
               Most exam prep resources were either too expensive, poorly designed, or simply not built
-              for how Nigerian students actually study — on mobile, often with limited data, preparing
+              for how Nigerian students actually study on mobile, often with limited data, preparing
               for high-stakes exams that determine their future.
             </p>
             <p>
               PassVerse was designed from scratch to solve these problems: offline-first, mobile-first,
-              AI-powered, and priced for Nigerian students. Every feature — from the timed mock exams
-              to the streak system — was built with one question in mind:{' '}
+              AI-powered, and priced for Nigerian students. Every feature, from the timed mock exams
+              to the streak system was built with one question in mind:{' '}
               <em>&ldquo;Will this help a student in Kano, Lagos or Enugu pass their exam?&rdquo;</em>
             </p>
             <p>
@@ -164,7 +164,7 @@ export default function AboutPage() {
               accessible across Nigeria.
             </p>
             <p className="text-sm text-[var(--color-gray-400)] italic">
-              &ldquo;Building PassVerse solo — with a lot of coffee and a deep belief that Nigerian
+              &ldquo;Building PassVerse solo with a lot of coffee and a deep belief that Nigerian
               students deserve better.&rdquo;
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function AboutPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             {[
-              { icon: '📧', label: 'General Enquiries', email: 'hello@passverse.com.ng' },
+              { icon: '📧', label: 'General Enquiries', email: 'support@passverse.com.ng' },
               { icon: '🛠️', label: 'Support',           email: 'support@passverse.com.ng' },
               { icon: '🏫', label: 'Schools & Partnerships', email: 'schools@passverse.com.ng' },
             ].map(({ icon, label, email }) => (
