@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingDownloadCTA } from '@/components/ui/FloatingDownloadCTA';
+import WhatsAppCTA from '@/components/layout/WhatsAppCTA';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://passverse.com.ng'),
@@ -43,6 +44,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingDownloadCTA />
+        <WhatsAppCTA />
       </body>
     </html>
   );
