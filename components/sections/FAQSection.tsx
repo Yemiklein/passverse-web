@@ -10,7 +10,7 @@ const faqs = [
   {
     question: 'Is PassVerse really free?',
     answer:
-      'Yes — the free plan gives you access to the 3 most recent years of past questions with no credit card required. Download and start practising immediately.',
+      'Yes, the free plan gives you access to the 3 most recent years of past questions with no credit card required. Download and start practising immediately.',
   },
   {
     question: 'Which exams does PassVerse cover?',
@@ -20,7 +20,7 @@ const faqs = [
   {
     question: 'Does it work without internet?',
     answer:
-      'Yes — once you\'ve practised a subject online, questions are saved to your device for offline access. Perfect for areas with poor network coverage.',
+      'Yes, once you\'ve practised a subject online, questions are saved to your device for offline access. Perfect for areas with poor network coverage.',
   },
   {
     question: 'How does the AI explanation work?',
@@ -30,7 +30,7 @@ const faqs = [
   {
     question: 'How is the score prediction calculated?',
     answer:
-      'PassVerse analyses your accuracy per subject, practice trends and mock exam scores to generate a predicted score range with a confidence level — so you know where you stand before exam day.',
+      'PassVerse analyses your accuracy per subject, practice trends and mock exam scores to generate a predicted score range with a confidence level so you know where you stand before exam day.',
   },
 ] as const;
 
