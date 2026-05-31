@@ -27,7 +27,7 @@ const J = {
   border:         '#1e3a5f',
   optionBg:       '#1e3a5f',
   optionHover:    '#254a7a',
-  optionSelected: '#0f3460',
+  optionSelected: '#1a2f5e',
   answered:       '#22c55e',
   unanswered:     '#475569',
   flagged:        '#f5a623',
@@ -329,8 +329,8 @@ export default function PracticeSelector() {
                   </button>
                   <button
                     onClick={confirmSubmit}
-                    className="flex-1 rounded-xl py-3 text-sm font-bold text-white hover:opacity-90 transition-opacity"
-                    style={{ background: J.accent }}
+                    className="flex-1 rounded-xl py-3 text-sm font-bold hover:opacity-90 transition-opacity"
+                    style={{ background: '#f5a623', color: '#1a1a2e' }}
                   >
                     Submit
                   </button>
@@ -404,8 +404,8 @@ export default function PracticeSelector() {
                         style={{
                           padding: '14px 18px',
                           background:  isSelected ? J.optionSelected : J.optionBg,
-                          border:      `1px solid ${J.border}`,
-                          borderLeft:  isSelected ? `3px solid ${J.accent}` : `1px solid ${J.border}`,
+                          border:      isSelected ? '1px solid #4169E1' : `1px solid ${J.border}`,
+                          borderLeft:  isSelected ? '3px solid #4169E1' : `1px solid ${J.border}`,
                         }}
                         onMouseEnter={e => {
                           if (!isSelected)
@@ -418,7 +418,7 @@ export default function PracticeSelector() {
                       >
                         <span
                           className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                          style={{ background: isSelected ? J.accent : J.sidebar, color: J.text }}
+                          style={{ background: isSelected ? '#4169E1' : J.sidebar, color: J.text }}
                         >
                           {opt.index}
                         </span>
@@ -522,15 +522,15 @@ export default function PracticeSelector() {
             onClick={goPrev}
             disabled={currentIndex === 0}
             className="flex items-center gap-1 text-sm font-semibold rounded-lg px-4 py-2 transition-opacity disabled:opacity-30"
-            style={{ color: J.text, background: J.optionBg, border: `1px solid ${J.border}` }}
+            style={{ color: J.text, background: '#1e3a5f', border: '1px solid #4169E1' }}
           >
             ◀ Previous
           </button>
 
           <button
             onClick={() => setShowConfirm(true)}
-            className="text-sm font-bold text-white rounded-lg px-5 py-2 hover:opacity-90 transition-opacity"
-            style={{ background: J.accent }}
+            className="text-sm font-bold rounded-lg px-5 py-2 hover:opacity-90 transition-opacity"
+            style={{ background: '#f5a623', color: '#1a1a2e' }}
           >
             Submit Exam
           </button>
@@ -539,7 +539,7 @@ export default function PracticeSelector() {
             onClick={goNext}
             disabled={currentIndex === questions.length - 1}
             className="flex items-center gap-1 text-sm font-semibold rounded-lg px-4 py-2 transition-opacity disabled:opacity-30"
-            style={{ color: J.text, background: J.optionBg, border: `1px solid ${J.border}` }}
+            style={{ color: '#fff', background: '#4169E1', border: '1px solid #4169E1' }}
           >
             Next ▶
           </button>
