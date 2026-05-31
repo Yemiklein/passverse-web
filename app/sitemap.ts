@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/blog';
 import { EXAMS } from '@/lib/pastQuestions';
+import { UNIVERSITIES } from '@/data/cutoffs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -57,6 +58,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  const cutoffUrls: MetadataRoute.Sitemap = [
+    {
+      url: 'https://passverse.com.ng/cut-off',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    ...UNIVERSITIES.map(u => ({
+      url: `https://passverse.com.ng/cut-off/${u.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+  ];
+
   return [
     {
       url: 'https://passverse.com.ng',
@@ -102,5 +118,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogUrls,
     ...pastQuestionsUrls,
+    ...cutoffUrls,
   ];
 }
