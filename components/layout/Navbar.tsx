@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Features',       href: '/#features' },
   { label: 'Past Questions', href: '/past-questions' },
   { label: 'Practice',       href: '/practice' },
+  { label: 'Countdown',      href: '/countdown' },
   { label: 'Blog',           href: '/blog' },
   { label: 'Pricing',        href: '/pricing' },
   { label: 'About',          href: '/about' },

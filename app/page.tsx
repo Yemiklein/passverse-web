@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { HeroSection }        from '@/components/sections/HeroSection';
+import { ExamCountdown }      from '@/components/countdown/ExamCountdown';
 import { StatsSection }       from '@/components/sections/StatsSection';
 import { FeaturesSection }    from '@/components/sections/FeaturesSection';
 import { HowItWorksSection }  from '@/components/sections/HowItWorksSection';
@@ -79,6 +80,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
       <HeroSection />
+      <ExamCountdown compact={true} />
       <StatsSection />
       <FeaturesSection />
       <HowItWorksSection />

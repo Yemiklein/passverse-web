@@ -71,6 +71,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://passverse.com.ng/countdown',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
       url: 'https://passverse.com.ng/blog',
       lastModified: new Date(),
       changeFrequency: 'daily',
