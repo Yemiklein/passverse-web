@@ -10,9 +10,11 @@ import {
   SUBJECT_ABOUT,
   type ExamType,
 } from '@/lib/pastQuestions';
+import { PRACTICE_QUESTIONS } from '@/data/practiceQuestions';
 import { Badge } from '@/components/ui/Badge';
 import { QuestionAccordion } from './QuestionAccordion';
 import { FAQAccordion } from './FAQAccordion';
+import { DownloadButton } from '@/components/past-questions/DownloadButton';
 
 export const revalidate = 86400;
 
@@ -87,6 +89,11 @@ export default async function YearPage({ params }: Props) {
   if (!examMeta || !subjectMeta) notFound();
   if (!subjectMeta.examTypes.includes(exam as ExamType)) notFound();
   if (!YEARS.includes(yearNum)) notFound();
+
+  const examTypeKey = exam.toUpperCase().replace(/-/g, '_');
+  const pdfQuestions = PRACTICE_QUESTIONS.filter(
+    (q) => q.exam_type === examTypeKey && q.subject === subject && q.year === yearNum,
+  );
 
   const sampleKey       = `${exam}-${subject}`;
   const questions       = SAMPLE_QUESTIONS[sampleKey] ?? [];
@@ -221,6 +228,27 @@ export default async function YearPage({ params }: Props) {
                 <p className="text-[var(--color-gray-600)] text-lg">
                   Practice {examMeta.label} {year} {subjectMeta.label} questions with detailed answers and explanations.
                 </p>
+
+                {/* Action buttons */}
+                <div className="flex flex-wrap items-center gap-3 mt-5">
+                  <DownloadButton
+                    questions={pdfQuestions}
+                    exam={exam}
+                    subject={subject}
+                    year={year}
+                    examLabel={examMeta.label}
+                    subjectLabel={subjectMeta.label}
+                  />
+                  <Link
+                    href="/practice"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#f5a623] px-6 py-2.5 text-sm font-semibold text-[#1a1a2e] hover:opacity-90 transition-opacity"
+                  >
+                    <svg className="h-4 w-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    Practice Interactively
+                  </Link>
+                </div>
               </div>
 
               {/* Sample questions */}
