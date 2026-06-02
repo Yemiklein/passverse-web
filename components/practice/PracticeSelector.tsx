@@ -77,40 +77,6 @@ interface SessionAnswer {
   is_correct:  boolean
 }
 
-// ── Floating particles (selector hero) ───────────────────────────────────────
-
-function FloatingParticles({ reduced }: { reduced: boolean }) {
-  if (reduced) return null
-  const particles = [
-    { emoji: '📚', top: '10%', left: '8%',  delay: 0,   dur: 6   },
-    { emoji: '✏️', top: '20%', left: '85%', delay: 1.5, dur: 7   },
-    { emoji: '⭐', top: '70%', left: '12%', delay: 0.8, dur: 5   },
-    { emoji: '🎯', top: '60%', left: '88%', delay: 2,   dur: 8   },
-    { emoji: '📚', top: '40%', left: '92%', delay: 0.3, dur: 6.5 },
-    { emoji: '✏️', top: '80%', left: '75%', delay: 1,   dur: 7.5 },
-  ]
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
-      {particles.map((p, i) => (
-        <span
-          key={i}
-          className="absolute text-2xl opacity-20 select-none"
-          style={{ top: p.top, left: p.left,
-            animation: `float ${p.dur}s ease-in-out ${p.delay}s infinite alternate` }}
-        >
-          {p.emoji}
-        </span>
-      ))}
-      <style>{`
-        @keyframes float {
-          from { transform: translateY(0) rotate(-5deg); }
-          to   { transform: translateY(-16px) rotate(5deg); }
-        }
-      `}</style>
-    </div>
-  )
-}
-
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function PracticeSelector() {
@@ -781,7 +747,6 @@ export default function PracticeSelector() {
         className="relative pt-32 pb-16 px-4 overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${J.sidebar} 0%, ${J.bg} 100%)` }}
       >
-        <FloatingParticles reduced={!!prefersReduced} />
         <div className="relative max-w-3xl mx-auto text-center">
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight"

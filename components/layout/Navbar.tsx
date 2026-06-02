@@ -151,7 +151,7 @@ export function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="flex flex-col leading-none group" onClick={closeMobile}>
             <span className={cn(
-              'text-xl font-extrabold tracking-tight transition-colors duration-300',
+              'text-2xl font-black tracking-tight transition-colors duration-300',
               scrolled ? 'text-[var(--color-primary)]' : 'text-white',
             )}>
               PassVerse
