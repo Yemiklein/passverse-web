@@ -4,11 +4,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
-/* ── Framer Motion variants ──
- * `as const` on the whole object keeps literal types (e.g. 'easeOut')
- * so they match Framer Motion's strict Easing union without a `: Variants`
- * contextual annotation that would widen string literals to `string`.
- */
 const headlineContainer = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
@@ -18,13 +13,6 @@ const headlineLine = {
   hidden:  { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 } as const;
-
-const floatingEmojis = [
-  { emoji: '📚', style: { top: '18%',   left: '4%'  }, delay: 0 },
-  { emoji: '✏️', style: { top: '15%',   right: '5%' }, delay: 1 },
-  { emoji: '🎯', style: { bottom: '22%', left: '6%' }, delay: 2 },
-  { emoji: '⭐', style: { bottom: '35%', right: '8%'}, delay: 1.5 },
-];
 
 const quizOptions = [
   { letter: 'A', text: 'x = 2', correct: false },
@@ -40,37 +28,25 @@ export function HeroSection() {
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        background:         'linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #1a1a3e 100%)',
-        backgroundSize:     '400% 400%',
-        animation:          reduceMotion ? 'none' : 'gradient 8s ease infinite',
+        background: 'linear-gradient(160deg, #1a3ab8 0%, #1230a0 40%, #0d2280 70%, #0a1f6e 100%)',
       }}
     >
-      {/* Dot-grid overlay */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)',
-          backgroundSize:  '32px 32px',
-        }}
-      />
-
-      {/* Floating emoji decorations */}
-      {floatingEmojis.map(({ emoji, style, delay }) => (
-        <span
-          key={emoji}
-          aria-hidden="true"
-          className="absolute text-4xl opacity-10 pointer-events-none select-none"
-          style={{
-            ...style,
-            animation: reduceMotion
-              ? 'none'
-              : `float ${3 + delay * 0.4}s ease-in-out ${delay}s infinite`,
-          }}
-        >
-          {emoji}
-        </span>
-      ))}
+      {/* Glow circles */}
+      <div aria-hidden="true" className="absolute pointer-events-none" style={{
+        width: 500, height: 500, borderRadius: '50%',
+        background: 'rgba(99, 149, 255, 0.12)',
+        top: -120, right: -100,
+      }} />
+      <div aria-hidden="true" className="absolute pointer-events-none" style={{
+        width: 350, height: 350, borderRadius: '50%',
+        background: 'rgba(255, 255, 255, 0.05)',
+        bottom: 60, left: -100,
+      }} />
+      <div aria-hidden="true" className="absolute pointer-events-none" style={{
+        width: 200, height: 200, borderRadius: '50%',
+        background: 'rgba(99, 149, 255, 0.10)',
+        top: '45%', right: '30%',
+      }} />
 
       {/* Main content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-28 w-full">
@@ -86,20 +62,26 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
             >
               <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white">
-                🇳🇬 Nigeria&apos;s #1 Exam Prep App
+                Nigeria&apos;s #1 Exam Prep App
               </span>
             </motion.div>
 
             {/* Staggered headline */}
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-white leading-tight"
+              className="text-5xl md:text-6xl font-black text-white leading-tight tracking-tight"
               variants={headlineContainer}
               initial="hidden"
               animate="visible"
             >
-              <motion.span className="block" variants={headlineLine}>Pass JAMB &amp; WAEC</motion.span>
-              <motion.span className="block" variants={headlineLine}>With AI-Powered</motion.span>
-              <motion.span className="block text-blue-300" variants={headlineLine}>Practice</motion.span>
+              <motion.span className="block" variants={headlineLine}>Pass JAMB.</motion.span>
+              <motion.span className="block" variants={headlineLine}>Ace WAEC.</motion.span>
+              <motion.span
+                className="block"
+                variants={headlineLine}
+                style={{ color: '#60a5fa' }}
+              >
+                Get Admitted.
+              </motion.span>
             </motion.h1>
 
             {/* Sub-headline */}
@@ -109,8 +91,9 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              10,000+ past questions. Smart AI explanations. Daily streaks.{' '}
-              Trusted by Nigerian students preparing for JAMB, WAEC, GCE and Post-UTME.
+              Nigeria&apos;s smartest exam prep — 26,000+ past questions,
+              AI explanations, CBT simulation &amp; daily streaks.
+              Trusted by SS2, SS3 &amp; Graduate students.
             </motion.p>
 
             {/* CTAs */}
@@ -155,15 +138,14 @@ export function HeroSection() {
                 ].map(({ initial, bg }) => (
                   <div
                     key={initial}
-                    className={`w-8 h-8 rounded-full ${bg} border-2 border-[#1E3A8A] flex items-center justify-center text-white text-xs font-bold`}
+                    className={`w-8 h-8 rounded-full ${bg} border-2 border-[#1a3ab8] flex items-center justify-center text-white text-xs font-bold`}
                   >
                     {initial}
                   </div>
                 ))}
               </div>
-              <span className="text-sm text-blue-300">
-                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
-                {' '}Loved by 5,000+ students
+              <span className="text-sm text-blue-200">
+                ★ ★ ★ ★ ★ Loved by 10,000+ Nigerian students
               </span>
             </motion.div>
           </div>
@@ -178,9 +160,9 @@ export function HeroSection() {
             >
               {/* Float loop wrapper */}
               <motion.div
-                animate={reduceMotion ? {} : { y: [0, -12, 0] }}
+                animate={reduceMotion ? {} : { y: [0, -8, 0] }}
                 transition={{
-                  duration:   3,
+                  duration:   4,
                   ease:       'easeInOut',
                   repeat:     Infinity,
                   repeatType: 'loop',
@@ -202,7 +184,7 @@ export function HeroSection() {
                     <div className="h-5 shrink-0" />
 
                     {/* App header */}
-                    <div className="bg-[#4169E1] px-3 py-2.5 shrink-0">
+                    <div className="bg-[#1a1a2e] px-3 py-2.5 shrink-0">
                       <p className="text-white text-[9px] font-semibold text-center tracking-wide">
                         JAMB &bull; Mathematics &bull; Q12 of 40
                       </p>

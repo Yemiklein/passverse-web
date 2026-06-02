@@ -14,6 +14,7 @@ type NavItem =
   | { type: 'dropdown'; label: string; items: { label: string; href: string; desc: string }[] };
 
 const navItems: NavItem[] = [
+  { type: 'link', label: 'Home', href: '/' },
   {
     type: 'dropdown',
     label: 'Exam Tools',
