@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -148,27 +149,15 @@ export function Navbar() {
         <nav className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link
-            href="/"
-            className="flex flex-col leading-none group"
-            onClick={closeMobile}
-          >
-            <span
-              className={cn(
-                'text-xl font-extrabold tracking-tight transition-colors duration-300',
-                scrolled ? 'text-[var(--color-primary)]' : 'text-white',
-              )}
-            >
-              PassVerse
-            </span>
-            <span
-              className={cn(
-                'text-[10px] font-medium tracking-widest uppercase transition-colors duration-300',
-                scrolled ? 'text-[var(--color-gray-400)]' : 'text-white/70',
-              )}
-            >
-              Ìmọ́dòye
-            </span>
+          <Link href="/" className="flex items-center group" onClick={closeMobile}>
+            <Image
+              src="/logo.png"
+              alt="PassVerse"
+              width={130}
+              height={44}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* ── Desktop Links ── */}
