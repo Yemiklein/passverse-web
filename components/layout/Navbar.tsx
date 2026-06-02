@@ -149,7 +149,7 @@ export function Navbar() {
         <nav className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex flex-col leading-none group" onClick={closeMobile}>
+          <Link href="/" className="flex items-baseline gap-2 group" onClick={closeMobile}>
             <span className={cn(
               'text-2xl font-black tracking-tight transition-colors duration-300',
               scrolled ? 'text-[var(--color-primary)]' : 'text-white',
@@ -157,8 +157,8 @@ export function Navbar() {
               PassVerse
             </span>
             <span className={cn(
-              'text-[10px] font-medium tracking-widest uppercase transition-colors duration-300',
-              scrolled ? 'text-[var(--color-gray-400)]' : 'text-white/60',
+              'text-[10px] font-medium tracking-widest uppercase transition-colors duration-300 hidden lg:block',
+              scrolled ? 'text-[var(--color-gray-400)]' : 'text-white/50',
             )}>
               Ìmọ́dòye
             </span>
