@@ -33,10 +33,10 @@ export function DownloadCTASection() {
 
         <AnimatedSection direction="up" delay={0.3}>
           <a
-            href="https://play.google.com/store/apps/details?id=com.passverse.app"
+            href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Get PassVerse on Google Play Store"
+            aria-label="Download PassVerse APK from Google Drive"
             className="inline-flex items-center gap-3 bg-black text-white rounded-xl px-6 py-3.5 hover:scale-105 transition-transform duration-200 hover:bg-gray-900"
           >
             {/* Play icon (triangle) */}
@@ -45,10 +45,10 @@ export function DownloadCTASection() {
             </span>
             <span className="text-left">
               <span className="block text-[9px] text-white/60 uppercase tracking-widest leading-none">
-                GET IT ON
+                DOWNLOAD FREE
               </span>
               <span className="block text-base font-semibold leading-tight mt-0.5">
-                Google Play
+                Android APK (Beta)
               </span>
             </span>
           </a>

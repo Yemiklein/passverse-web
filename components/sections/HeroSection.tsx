@@ -104,7 +104,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 1.0 }}
             >
               <Button
-                href="#download"
+                href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
                 size="lg"
                 variant="primary"
                 aria-label="Download PassVerse free on Android"
