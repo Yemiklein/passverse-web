@@ -33,7 +33,8 @@ export function DownloadCTASection() {
 
         <AnimatedSection direction="up" delay={0.3}>
           <a
-            href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
+            // href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
+            href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download PassVerse APK from Google Drive"

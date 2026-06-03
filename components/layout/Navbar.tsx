@@ -202,7 +202,7 @@ export function Navbar() {
 
           {/* ── Desktop CTA ── */}
           <div className="hidden md:block">
-            <Button href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing" size="sm" variant="primary">
+            <Button href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view" size="sm" variant="primary">
               Download App
             </Button>
           </div>
@@ -290,7 +290,7 @@ export function Navbar() {
                 className="mt-6"
               >
                 <Button
-                  href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
                   size="lg"
                   variant="primary"
                   className="w-full justify-center"

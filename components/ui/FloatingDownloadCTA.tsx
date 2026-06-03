@@ -39,7 +39,7 @@ export function FloatingDownloadCTA() {
         >
           <div className="flex items-center gap-2 bg-[var(--color-primary)] text-white rounded-full shadow-[var(--shadow-glow)] px-4 py-2.5">
             <a
-              href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
+              href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-semibold"

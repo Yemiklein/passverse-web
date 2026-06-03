@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/user/Desktop/PassVerse/assets/logo.png 2>/dev/null && echo \"EXISTS\" || echo \"NOT FOUND\")",
+      "Read(//Users/user/Desktop/PassVerse/assets/**)"
+    ]
+  }
+}
