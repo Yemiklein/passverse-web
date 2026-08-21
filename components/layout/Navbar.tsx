@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
+import { DOWNLOAD_PAGE_URL } from '@/lib/constants';
 
 type NavItem =
   | { type: 'link'; label: string; href: string }
@@ -202,7 +203,7 @@ export function Navbar() {
 
           {/* ── Desktop CTA ── */}
           <div className="hidden md:block">
-            <Button href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view" size="sm" variant="primary">
+            <Button href={DOWNLOAD_PAGE_URL} size="sm" variant="primary">
               Download App
             </Button>
           </div>
@@ -290,7 +291,7 @@ export function Navbar() {
                 className="mt-6"
               >
                 <Button
-                  href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
+                  href={DOWNLOAD_PAGE_URL}
                   size="lg"
                   variant="primary"
                   className="w-full justify-center"

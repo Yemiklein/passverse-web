@@ -1,5 +1,6 @@
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { Play } from 'lucide-react';
+import { DOWNLOAD_PAGE_URL } from '@/lib/constants';
 
 export function DownloadCTASection() {
   return (
@@ -33,11 +34,8 @@ export function DownloadCTASection() {
 
         <AnimatedSection direction="up" delay={0.3}>
           <a
-            // href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view?usp=sharing"
-            href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download PassVerse APK from Google Drive"
+            href={DOWNLOAD_PAGE_URL}
+            aria-label="Download PassVerse APK"
             className="inline-flex items-center gap-3 bg-black text-white rounded-xl px-6 py-3.5 hover:scale-105 transition-transform duration-200 hover:bg-gray-900"
           >
             {/* Play icon (triangle) */}

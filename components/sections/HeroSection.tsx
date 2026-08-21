@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { DOWNLOAD_PAGE_URL } from '@/lib/constants';
 
 const headlineContainer = {
   hidden:  {},
@@ -104,7 +105,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 1.0 }}
             >
               <Button
-                href="https://drive.google.com/file/d/1vfbGfG2VOgCKLczaIzgdjeqkiUiCO1_n/view"
+                href={DOWNLOAD_PAGE_URL}
                 size="lg"
                 variant="primary"
                 aria-label="Download PassVerse free on Android"
