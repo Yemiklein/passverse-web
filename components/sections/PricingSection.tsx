@@ -1,7 +1,7 @@
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { PricingPremiumCard } from '@/components/sections/PricingPremiumCard';
 
 interface PricingFeature {
   text:      string;
@@ -91,35 +91,7 @@ export function PricingSection() {
 
         {/* ── PREMIUM ── */}
         <AnimatedSection direction="up" delay={0.15}>
-          <div className="bg-white rounded-2xl border-2 border-[var(--color-primary)] shadow-[var(--shadow-lg)] p-8 flex flex-col gap-6 h-full md:scale-105 relative">
-            {/* Most Popular badge */}
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-              <Badge variant="amber">Most Popular</Badge>
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-2">
-                Premium
-              </p>
-              <div className="flex items-end gap-1">
-                <span className="text-5xl font-extrabold text-[var(--color-gray-900)]">₦1,500</span>
-                <span className="text-[var(--color-gray-400)] mb-1">/month</span>
-              </div>
-              <p className="text-sm text-[var(--color-teal)] mt-1 font-medium">
-                or ₦10,000/year <span className="text-[var(--color-gray-400)] font-normal">(save ₦8,000)</span>
-              </p>
-            </div>
-
-            <ul className="flex flex-col gap-3 flex-1">
-              {premiumFeatures.map((f) => (
-                <FeatureItem key={f.text} {...f} />
-              ))}
-            </ul>
-
-            <Button href="/pricing" variant="primary" size="md" className="w-full justify-center">
-              Get Premium
-            </Button>
-          </div>
+          <PricingPremiumCard features={premiumFeatures} />
         </AnimatedSection>
 
       </div>

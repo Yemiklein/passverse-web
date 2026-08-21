@@ -143,7 +143,7 @@ export default async function YearPage({ params }: Props) {
     {
       question: 'Is PassVerse free?',
       answer:
-        'PassVerse is free with access to the 3 most recent years for every subject. Premium (₦1,500/month) unlocks the full archive from 2001 to 2025 with no restrictions.',
+        'PassVerse is free with access to the 3 most recent years for every subject. Premium (₦2,000/month) unlocks the full archive from 2001 to 2025 with no restrictions.',
     },
     {
       question: 'How is PassVerse different from other exam prep apps?',

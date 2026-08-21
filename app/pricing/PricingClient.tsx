@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { BillingToggle } from '@/components/pricing/BillingToggle';
+import { PRICING_PLANS, savings, formatNaira, type BillingPeriod } from '@/lib/pricing';
 
-/* ─── Billing toggle ─────────────────────────────── */
-type Billing = 'monthly' | 'yearly';
-
-/* ─── Features shared between monthly & yearly ────── */
+/* ─── Features shared across all premium plans ────── */
 const PREMIUM_FEATURES = [
   'Everything in Free',
   'Full archive 2001–2025',
@@ -71,7 +70,7 @@ const FAQS = [
   },
   {
     q: 'Is there a student discount?',
-    a: 'The yearly plan at ₦10,000 is already our best value — that\'s less than ₦28 per day. We believe quality exam prep should be accessible to every Nigerian student.',
+    a: 'The yearly plan at ₦12,000 is already our best value — that\'s less than ₦33 per day. We believe quality exam prep should be accessible to every Nigerian student.',
   },
   {
     q: 'Do you offer school or bulk pricing?',
@@ -127,53 +126,20 @@ function PricingFAQ() {
 
 /* ─── Main client component ───────────────────────── */
 export function PricingClient() {
-  const [billing, setBilling] = useState<Billing>('monthly');
+  const [billing, setBilling] = useState<BillingPeriod>('monthly');
   const [tableExpanded, setTableExpanded] = useState(false);
-  const isYearly = billing === 'yearly';
 
   const visibleRows = tableExpanded ? TABLE_ROWS : TABLE_ROWS.slice(0, 6);
 
   return (
     <div>
       {/* ── Billing toggle ── */}
-      <div className="flex items-center justify-center gap-4 mb-12">
-        <span className={cn('text-sm font-semibold', !isYearly ? 'text-[var(--color-gray-900)]' : 'text-[var(--color-gray-400)]')}>
-          Monthly
-        </span>
-        <button
-          role="switch"
-          aria-checked={isYearly}
-          aria-label="Toggle billing period"
-          onClick={() => setBilling(isYearly ? 'monthly' : 'yearly')}
-          className="relative w-14 h-7 rounded-full bg-[var(--color-primary)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
-        >
-          <span
-            className={cn(
-              'absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200',
-              isYearly && 'translate-x-7',
-            )}
-          />
-        </button>
-        <span className={cn('text-sm font-semibold', isYearly ? 'text-[var(--color-gray-900)]' : 'text-[var(--color-gray-400)]')}>
-          Yearly
-        </span>
-        <AnimatePresence>
-          {isYearly && (
-            <motion.span
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -8 }}
-              transition={{ duration: 0.2 }}
-              className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full"
-            >
-              Save ₦8,000
-            </motion.span>
-          )}
-        </AnimatePresence>
+      <div className="flex items-center justify-center mb-12">
+        <BillingToggle value={billing} onChange={setBilling} />
       </div>
 
       {/* ── Pricing cards ── */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
 
         {/* FREE */}
         <motion.div
@@ -238,7 +204,7 @@ export function PricingClient() {
             Monthly Premium
           </span>
           <div className="mb-1 flex items-baseline gap-1">
-            <span className="text-4xl font-extrabold text-[var(--color-gray-900)]">₦1,500</span>
+            <span className="text-4xl font-extrabold text-[var(--color-gray-900)]">{PRICING_PLANS.monthly.displayPrice}</span>
             <span className="text-[var(--color-gray-400)] text-sm">/month</span>
           </div>
           <p className="text-sm text-[var(--color-gray-400)] mb-6">Billed monthly, cancel anytime</p>
@@ -262,6 +228,44 @@ export function PricingClient() {
           </a>
         </motion.div>
 
+        {/* QUARTERLY PREMIUM */}
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ delay: 0.22, duration: 0.5 }}
+          className="relative rounded-2xl border border-[var(--color-gray-100)] bg-white p-7 flex flex-col"
+        >
+          <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-[var(--color-teal-light)] text-[var(--color-teal-dark)] mb-4 self-start">
+            Quarterly Premium
+          </span>
+          <div className="mb-1 flex items-baseline gap-1">
+            <span className="text-4xl font-extrabold text-[var(--color-gray-900)]">{PRICING_PLANS.quarterly.displayPrice}</span>
+            <span className="text-[var(--color-gray-400)] text-sm">/3 months</span>
+          </div>
+          <p className="text-sm text-[var(--color-gray-400)] mb-6">
+            Save {formatNaira(savings(PRICING_PLANS.quarterly))} vs monthly
+          </p>
+
+          <ul className="space-y-2 mb-6 flex-1">
+            {PREMIUM_FEATURES.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm text-[var(--color-gray-700)]">
+                <span className="text-emerald-500 font-bold mt-0.5 flex-shrink-0">✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="https://play.google.com/store/apps/details?id=com.passverse"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-center rounded-full bg-[var(--color-primary)] text-white font-semibold py-3 px-6 text-sm hover:bg-[var(--color-primary-hover)] active:scale-95 transition-all duration-150 shadow-md"
+          >
+            Get Quarterly Premium
+          </a>
+        </motion.div>
+
         {/* YEARLY PREMIUM */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.97 }}
@@ -274,16 +278,16 @@ export function PricingClient() {
             Best Value
           </span>
           <div className="mb-1 flex items-baseline gap-1">
-            <span className="text-4xl font-extrabold text-[var(--color-gray-900)]">₦10,000</span>
+            <span className="text-4xl font-extrabold text-[var(--color-gray-900)]">{PRICING_PLANS.yearly.displayPrice}</span>
             <span className="text-[var(--color-gray-400)] text-sm">/year</span>
           </div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-sm text-[var(--color-gray-400)] line-through">₦18,000/year</span>
+            <span className="text-sm text-[var(--color-gray-400)] line-through">{formatNaira(PRICING_PLANS.yearly.monthlyEquivalentTotal)}/year</span>
             <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">
-              You save ₦8,000
+              You save {formatNaira(savings(PRICING_PLANS.yearly))}
             </span>
           </div>
-          <p className="text-sm text-[var(--color-gray-400)] mb-6">Save ₦8,000 vs monthly</p>
+          <p className="text-sm text-[var(--color-gray-400)] mb-6">Save {formatNaira(savings(PRICING_PLANS.yearly))} vs monthly</p>
 
           <ul className="space-y-2 mb-6 flex-1">
             {PREMIUM_FEATURES.map((f) => (
@@ -314,9 +318,10 @@ export function PricingClient() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[var(--color-gray-100)] bg-[var(--color-gray-50)]">
-                <th className="text-left p-4 font-semibold text-[var(--color-gray-600)] w-1/2">Feature</th>
+                <th className="text-left p-4 font-semibold text-[var(--color-gray-600)] w-2/5">Feature</th>
                 <th className="p-4 font-semibold text-[var(--color-gray-600)] text-center">Free</th>
                 <th className="p-4 font-semibold text-[var(--color-primary)] text-center">Monthly</th>
+                <th className="p-4 font-semibold text-[var(--color-primary)] text-center">Quarterly</th>
                 <th className="p-4 font-semibold text-[var(--color-primary)] text-center">Yearly</th>
               </tr>
             </thead>
@@ -333,10 +338,13 @@ export function PricingClient() {
                       <TableCell value={isPrice ? '₦0' : row.free} />
                     </td>
                     <td className="p-4 text-center">
-                      <TableCell value={isPrice ? '₦1,500/mo' : row.premium} highlight />
+                      <TableCell value={isPrice ? `${PRICING_PLANS.monthly.displayPrice}/mo` : row.premium} highlight />
                     </td>
                     <td className="p-4 text-center">
-                      <TableCell value={isPrice ? '₦10,000/yr' : row.premium} highlight />
+                      <TableCell value={isPrice ? `${PRICING_PLANS.quarterly.displayPrice}/3mo` : row.premium} highlight />
+                    </td>
+                    <td className="p-4 text-center">
+                      <TableCell value={isPrice ? `${PRICING_PLANS.yearly.displayPrice}/yr` : row.premium} highlight />
                     </td>
                   </tr>
                 );

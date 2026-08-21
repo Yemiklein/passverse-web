@@ -4,14 +4,14 @@ import { PricingClient } from './PricingClient';
 export const metadata: Metadata = {
   title: 'Pricing — Free & Premium Plans | PassVerse',
   description:
-    'PassVerse is free to download. Upgrade to Premium for ₦1,500/month to unlock the full JAMB and WAEC past questions archive, mock exams, AI explanations and score prediction.',
+    'PassVerse is free to download. Upgrade to Premium for ₦2,000/month to unlock the full JAMB and WAEC past questions archive, mock exams, AI explanations and score prediction.',
   keywords: ['PassVerse premium', 'JAMB app price', 'exam prep app Nigeria price', 'WAEC app subscription'],
   alternates: {
     canonical: 'https://passverse.com.ng/pricing',
   },
   openGraph: {
     title: 'Pricing — Free & Premium Plans | PassVerse',
-    description: 'Start free. Upgrade to Premium for ₦1,500/month. Unlock 26,000+ questions, mock exams and AI explanations.',
+    description: 'Start free. Upgrade to Premium for ₦2,000/month. Unlock 26,000+ questions, mock exams and AI explanations.',
     url: 'https://passverse.com.ng/pricing',
     type: 'website',
   },
