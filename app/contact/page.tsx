@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ContactForm } from './ContactForm';
+import { SUPPORT_WHATSAPP_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Us | PassVerse',
@@ -35,14 +36,14 @@ export default function ContactPage() {
             <p className="text-sm text-[var(--color-primary)] break-all">support@passverse.com.ng</p>
           </a>
           <a
-            href="https://wa.me/2348000000000"
+            href={SUPPORT_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-xl border border-[var(--color-gray-100)] bg-[var(--color-gray-50)] p-4 text-center hover:border-[var(--color-primary)] transition-colors duration-200 block"
           >
             <span className="text-2xl mb-2 block" aria-hidden="true">💬</span>
             <p className="text-xs font-semibold text-[var(--color-gray-400)] uppercase tracking-wide mb-1">WhatsApp</p>
-            <p className="text-sm text-[var(--color-primary)]">Chat with us</p>
+            <p className="text-sm text-[var(--color-primary)]">Join the study group</p>
           </a>
           <div className="rounded-xl border border-[var(--color-gray-100)] bg-[var(--color-gray-50)] p-4 text-center">
             <span className="text-2xl mb-2 block" aria-hidden="true">⏱️</span>

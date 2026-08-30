@@ -163,7 +163,7 @@ export function PastQuestionsIndexClient({ exams, subjects }: Props) {
           AI explanations for every answer. Track your score. Study offline. Free to download.
         </p>
         <a
-          href="https://play.google.com/store/apps/details?id=com.passverse"
+          href="/download"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded-full bg-white px-8 py-3 font-semibold text-[var(--color-primary)] hover:opacity-90 transition-opacity"

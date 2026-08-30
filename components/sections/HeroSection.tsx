@@ -103,7 +103,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Nigeria&apos;s smartest exam prep — 26,000+ past questions,
+              Nigeria&apos;s smartest exam prep — 26,675 past questions,
               AI explanations, CBT simulation &amp; daily streaks.
               Trusted by SS2, SS3 &amp; Graduate students.
             </motion.p>

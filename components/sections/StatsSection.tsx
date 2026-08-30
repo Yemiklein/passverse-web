@@ -12,8 +12,8 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { icon: '📝', value: 10000, suffix: '+', label: 'Past Questions' },
-  { icon: '👨‍🎓', value: 5000,  suffix: '+', label: 'Students'       },
+  { icon: '📝', value: 26675, suffix: '+', label: 'Past Questions' },
+  { icon: '👨‍🎓', value: 10000,  suffix: '+', label: 'Students'       },
   { icon: '📚', value: 16,    suffix: '',  label: 'Subjects'        },
 ];
 

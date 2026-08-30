@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { BillingToggle } from '@/components/pricing/BillingToggle';
 import { PRICING_PLANS, savings, formatNaira, type BillingPeriod } from '@/lib/pricing';
+import { PRICING_FAQS as FAQS } from '@/lib/pricingFaqs';
 
 /* ─── Features shared across all premium plans ────── */
 const PREMIUM_FEATURES = [
@@ -55,32 +56,8 @@ const TABLE_ROWS: { feature: string; free: string; premium: string }[] = [
 ];
 
 /* ─── FAQ data ────────────────────────────────────── */
-const FAQS = [
-  {
-    q: 'How do I pay for Premium?',
-    a: 'Payment is processed securely through Paystack — Nigeria\'s leading payment platform. You can pay with card, bank transfer, or USSD. Your subscription activates immediately after payment.',
-  },
-  {
-    q: 'Can I cancel anytime?',
-    a: 'Yes — email support@passverse.com.ng and we\'ll cancel within 24 hours. You keep premium access until the end of your billing period. No partial refunds.',
-  },
-  {
-    q: 'What happens to my data if I cancel?',
-    a: 'Your progress, streaks, XP and badges are saved forever. You simply lose access to premium features but keep your free plan access.',
-  },
-  {
-    q: 'Is there a student discount?',
-    a: 'The yearly plan at ₦12,000 is already our best value — that\'s less than ₦33 per day. We believe quality exam prep should be accessible to every Nigerian student.',
-  },
-  {
-    q: 'Do you offer school or bulk pricing?',
-    a: 'Yes — we offer special pricing for lesson centres and schools. Email schools@passverse.com.ng for details.',
-  },
-  {
-    q: 'What if I have payment issues?',
-    a: 'Email support@passverse.com.ng with your payment reference and we\'ll resolve it within 24 hours.',
-  },
-];
+/* FAQ content lives in lib/pricingFaqs.ts so the page UI and the FAQPage
+   structured data (app/pricing/page.tsx) stay in sync. */
 
 /* ─── Accordion ──────────────────────────────────── */
 function PricingFAQ() {
@@ -173,7 +150,7 @@ export function PricingClient() {
           </ul>
 
           <a
-            href="https://play.google.com/store/apps/details?id=com.passverse"
+            href="/download"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-center rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold py-3 px-6 text-sm hover:bg-[var(--color-primary-light)] transition-colors duration-150"
@@ -219,7 +196,7 @@ export function PricingClient() {
           </ul>
 
           <a
-            href="https://play.google.com/store/apps/details?id=com.passverse"
+            href="/download"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-center rounded-full bg-[var(--color-primary)] text-white font-semibold py-3 px-6 text-sm hover:bg-[var(--color-primary-hover)] active:scale-95 transition-all duration-150 shadow-md"
@@ -257,7 +234,7 @@ export function PricingClient() {
           </ul>
 
           <a
-            href="https://play.google.com/store/apps/details?id=com.passverse"
+            href="/download"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-center rounded-full bg-[var(--color-primary)] text-white font-semibold py-3 px-6 text-sm hover:bg-[var(--color-primary-hover)] active:scale-95 transition-all duration-150 shadow-md"
@@ -299,7 +276,7 @@ export function PricingClient() {
           </ul>
 
           <a
-            href="https://play.google.com/store/apps/details?id=com.passverse"
+            href="/download"
             target="_blank"
             rel="noopener noreferrer"
             className="block text-center rounded-full bg-[var(--color-primary)] text-white font-semibold py-3 px-6 text-sm hover:bg-[var(--color-primary-hover)] active:scale-95 transition-all duration-150 shadow-md"
@@ -382,7 +359,7 @@ export function PricingClient() {
           Download PassVerse, practise with the latest 3 years, and upgrade whenever you&apos;re ready.
         </p>
         <a
-          href="https://play.google.com/store/apps/details?id=com.passverse"
+          href="/download"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded-full bg-[var(--color-primary)] text-white font-semibold py-3 px-8 text-sm hover:bg-[var(--color-primary-hover)] active:scale-95 transition-all duration-150 shadow-md"

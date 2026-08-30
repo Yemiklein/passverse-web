@@ -68,7 +68,7 @@ export default function CutOffIndexPage() {
             Practice JAMB Questions on PassVerse
           </h2>
           <p className="text-blue-100 mb-6 max-w-xl mx-auto">
-            10,000+ JAMB past questions with AI explanations. Boost your score before the exam.
+            26,675 JAMB past questions with AI explanations. Boost your score before the exam.
           </p>
           <a
             href="/practice"

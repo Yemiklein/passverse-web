@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     default:  "PassVerse — Nigeria's #1 Exam Prep App",
   },
   description:
-    'Practice JAMB, WAEC, GCE and Post-UTME past questions with AI explanations. ' +
-    'Free Nigerian exam prep app. 10,000+ questions. Download on Android.',
+    'Practice JAMB, WAEC, NECO, GCE and Post-UTME past questions with AI explanations. ' +
+    'Free Nigerian exam prep app. 26,675 questions. Download on Android.',
   keywords: [
     'JAMB past questions',
     'WAEC past questions',
