@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PricingClient } from './PricingClient';
+import { PromoBanner } from '@/components/promo/PromoBanner';
 
 export const metadata: Metadata = {
   title: 'Pricing — Free & Premium Plans | PassVerse',
@@ -34,6 +35,8 @@ export default function PricingPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-14">
+        {/* Auto-shows during September 2026, hides on October 1 */}
+        <PromoBanner className="mb-12 block" />
         <PricingClient />
       </div>
     </main>

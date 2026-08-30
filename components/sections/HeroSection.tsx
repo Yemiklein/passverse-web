@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { DOWNLOAD_PAGE_URL } from '@/lib/constants';
+import { usePromoActive } from '@/components/promo/usePromoActive';
 
 const headlineContainer = {
   hidden:  {},
@@ -24,6 +25,7 @@ const quizOptions = [
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const promoActive = usePromoActive();
 
   return (
     <section
@@ -56,15 +58,24 @@ export function HeroSection() {
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-6 order-2 lg:order-1">
 
-            {/* Badge */}
+            {/* Badge — becomes the September promo pill while the promo is live */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white">
-                Nigeria&apos;s #1 Exam Prep App
-              </span>
+              {promoActive ? (
+                <span
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm font-semibold text-white"
+                  style={{ background: 'linear-gradient(135deg, #1D9E75, #0F6E56)' }}
+                >
+                  🎉 Premium is FREE all September — no card needed
+                </span>
+              ) : (
+                <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white">
+                  Nigeria&apos;s #1 Exam Prep App
+                </span>
+              )}
             </motion.div>
 
             {/* Staggered headline */}
