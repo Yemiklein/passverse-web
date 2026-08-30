@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { DownloadClient } from './DownloadClient';
+import { PromoBanner } from '@/components/promo/PromoBanner';
 
 export const metadata: Metadata = {
   title: 'Download PassVerse for Android',
@@ -20,6 +21,10 @@ export const metadata: Metadata = {
 export default function DownloadPage() {
   return (
     <main className="pt-20 pb-16">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 pt-6">
+        {/* Auto-shows during September 2026, hides on October 1 */}
+        <PromoBanner />
+      </div>
       <DownloadClient />
     </main>
   );
