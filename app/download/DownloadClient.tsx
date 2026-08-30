@@ -22,7 +22,7 @@ const INSTALL_STEPS = [
 ];
 
 const FEATURES = [
-  { icon: '📚', title: '26,675 Questions', desc: 'JAMB & WAEC 2001–2020' },
+  { icon: '📚', title: '26,675 Questions', desc: 'JAMB & WAEC 2001–2025' },
   { icon: '🤖', title: 'AI Explanations', desc: 'Claude AI explains every answer' },
   { icon: '⏱️', title: 'Mock Exams', desc: '40 questions × 60 min, real conditions' },
   { icon: '🔥', title: 'Daily Streaks', desc: 'Build your study consistency' },

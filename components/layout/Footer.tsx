@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import { X, Camera, Globe, Smartphone } from 'lucide-react';
+import {
+  APP_INSTALL_URL,
+  SUPPORT_WHATSAPP_URL,
+  QUESTION_COUNT_DISPLAY,
+} from '@/lib/constants';
 
 const companyLinks = [
   { label: 'About',         href: '/about' },
@@ -45,7 +50,7 @@ export function Footer() {
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Nigeria&apos;s smartest exam prep app. Master JAMB, WAEC, GCE and Post-UTME
-              with AI-powered explanations and 26,000+ past questions.
+              with AI-powered explanations and {QUESTION_COUNT_DISPLAY} past questions.
             </p>
 
             {/* Social icons */}
@@ -64,19 +69,17 @@ export function Footer() {
               ))}
             </div>
 
-            {/* Play Store badge */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.passverse"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Download badge — direct APK, not yet on Google Play */}
+            <Link
+              href={APP_INSTALL_URL}
               className="inline-flex items-center gap-3 mt-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl px-4 py-3 transition-colors duration-200 w-fit"
             >
               <Smartphone size={20} className="text-white/80" />
               <div className="leading-none">
-                <p className="text-[10px] text-white/60 tracking-wide uppercase">Get it on</p>
-                <p className="text-sm font-semibold text-white">Google Play</p>
+                <p className="text-[10px] text-white/60 tracking-wide uppercase">Download</p>
+                <p className="text-sm font-semibold text-white">Free for Android</p>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Col 2 — Company */}
@@ -126,7 +129,7 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="https://wa.me/2348000000000"
+                  href={SUPPORT_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/70 hover:text-white transition-colors duration-150"
@@ -152,7 +155,7 @@ export function Footer() {
         {/* ── Bottom bar ── */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40 text-center sm:text-left">
-            &copy; 2025 PassVerse (Ìmọ́dòye). All rights reserved.
+            &copy; {new Date().getFullYear()} PassVerse (Ìmọ́dòye). All rights reserved.
           </p>
           <p className="text-xs text-white/40">
             Made with ❤️ in Nigeria 🇳🇬

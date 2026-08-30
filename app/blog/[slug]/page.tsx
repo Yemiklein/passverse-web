@@ -251,10 +251,10 @@ export default async function BlogPostPage({ params }: Props) {
                   <div className="mb-3 text-4xl">📱</div>
                   <h3 className="mb-2 font-bold text-lg">Download PassVerse</h3>
                   <p className="mb-4 text-sm text-blue-100">
-                    Practice past questions on your phone. 10,000+ questions, free to download.
+                    Practice past questions on your phone. 26,675 questions, free to download.
                   </p>
                   <a
-                    href="https://play.google.com/store/apps/details?id=com.passverse"
+                    href="/download"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block rounded-full bg-white px-5 py-2.5 text-center text-sm font-semibold text-[var(--color-primary)] transition-opacity hover:opacity-90"

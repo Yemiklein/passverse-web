@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
     label: 'Exam Tools',
     items: [
       { label: 'Practice',        href: '/practice',        desc: 'JAMB & WAEC CBT simulation'  },
-      { label: 'Past Questions',  href: '/past-questions',  desc: 'Full archive 1999–2025'       },
+      { label: 'Past Questions',  href: '/past-questions',  desc: 'Full archive 2001–2025'       },
       { label: 'Score Predictor', href: '/score-predictor', desc: 'AI-powered score forecast'    },
       { label: 'Cut-Off Marks',   href: '/cut-off',         desc: '200+ universities database'   },
       { label: 'Countdown',       href: '/countdown',       desc: 'Days to your exam'            },

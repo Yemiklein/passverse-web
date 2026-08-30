@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 import { PricingClient } from './PricingClient';
 import { PromoBanner } from '@/components/promo/PromoBanner';
+import { PRICING_FAQS } from '@/lib/pricingFaqs';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: PRICING_FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 export const metadata: Metadata = {
   title: 'Pricing — Free & Premium Plans | PassVerse',
@@ -21,6 +32,7 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <main className="pt-20 pb-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Header */}
       <div className="bg-white border-b border-[var(--color-gray-100)]">
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-14 text-center">

@@ -184,7 +184,7 @@ export default async function SubjectPage({ params }: Props) {
                     </p>
                   </div>
                   <a
-                    href="https://play.google.com/store/apps/details?id=com.passverse"
+                    href="/download"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-shrink-0 rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[var(--color-primary)] hover:opacity-90 transition-opacity whitespace-nowrap"

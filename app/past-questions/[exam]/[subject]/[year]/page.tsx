@@ -286,7 +286,7 @@ export default async function YearPage({ params }: Props) {
                   </div>
                 </div>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.passverse"
+                  href="/download"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block rounded-full bg-white px-7 py-2.5 font-semibold text-[var(--color-primary)] hover:opacity-90 transition-opacity text-sm"
@@ -363,7 +363,7 @@ export default async function YearPage({ params }: Props) {
                     Practice past questions on your phone. 26,000+ questions, free to download.
                   </p>
                   <a
-                    href="https://play.google.com/store/apps/details?id=com.passverse"
+                    href="/download"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block rounded-full bg-white px-5 py-2.5 text-center text-sm font-semibold text-[var(--color-primary)] hover:opacity-90 transition-opacity"

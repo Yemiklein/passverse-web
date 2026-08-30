@@ -112,7 +112,7 @@ export default function CountdownPage() {
               Practice Free →
             </Link>
             <a
-              href="https://play.google.com/store/apps/details?id=com.passverse"
+              href="/download"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border-2 border-white px-8 py-3 font-semibold text-white hover:bg-white/10 transition-colors"

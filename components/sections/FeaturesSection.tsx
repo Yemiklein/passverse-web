@@ -4,7 +4,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper';
 const features = [
   {
     icon:  '📝',
-    title: '10,000+ Past Questions',
+    title: '26,675 Past Questions',
     desc:  'JAMB, WAEC, GCE, NECO and Post-UTME questions from 2001 to 2025',
   },
   {
